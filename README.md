@@ -1,8 +1,7 @@
 
-#Live site
+The repo: https://github.com/seebees/departure_times
 
-http://gtf.meteor.com
-
+The live instance: http://gtf.meteor.com
 
 # Thoughts
 
