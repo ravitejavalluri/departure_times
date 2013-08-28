@@ -1,0 +1,32 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "typeahead-js": {},
+      "xml2js": {},
+      "util": {}
+    },
+    "packages": {
+      "typeahead-js": {
+        "git": "https://github.com/olragon/meteor-typeahead-js.git",
+        "tag": "v0.9.3",
+        "commit": "9241c6c68f39cf37699b5de7b03d60a5434a5d21"
+      },
+      "xml2js": {
+        "git": "https://github.com/peerlibrary/meteor-xml2js.git",
+        "tag": "v0.2.8.3",
+        "commit": "398408e93683fded2cdd12923f181200713aee5e"
+      },
+      "util": {
+        "git": "https://github.com/peerlibrary/meteor-util.git",
+        "tag": "v0.2.1",
+        "commit": "918f04d7645ce46b3dc7d23e15417f840cd20a4d"
+      },
+      "blocking": {
+        "git": "https://github.com/peerlibrary/meteor-blocking.git",
+        "tag": "v0.4.0",
+        "commit": "e25a0be72e771b317b26d2bb5758c983bdcef23c"
+      }
+    }
+  }
+}
