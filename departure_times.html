@@ -1,0 +1,51 @@
+<head>
+  <title>Get There Fast</title>
+</head>
+
+<body>
+<div class="masthead">
+  {{> user_input}}
+  {{> departures}}
+</div>
+</body>
+
+<template name="user_input">
+  <div>
+    <h1>Get There Fast</h1>
+    {{#if loaded}}
+      {{> typeahead}}
+    {{else}}
+      Loading...
+    {{/if}}
+  </div>
+</template>
+
+<template name="typeahead">
+{{! This is a seperate template from user_input so 
+    that the render function will be called only
+    once the Stops collection has been filled}}
+  <div class="gtf-inputbox">
+    <input class="typeahead" type="text" placeholder="Type the Name of Your Stop." />
+  </div>
+</template>
+
+<template name="departures">
+  <div>
+  {{#each watched_stops}}
+    {{> stop}}
+  {{/each}}
+  </div>
+</template>
+
+<template name="stop">
+{{! This makes makes each watched stop a separate 
+    reactive template.  Meteor should only re-render
+    each stop when the departure times are updated
+    for that stop}}
+  <div class="">
+    <div class="stop-header">{{name}} - {{route.name}}</div>
+    {{#each departures}}
+      <p class="options">{{time}} minutes</p>
+    {{/each}}
+  <div>
+</template>
