@@ -110,17 +110,19 @@ function updateDB() {
           _routes.forEach(function(_route){
             _route.GetStops(function(err, _stops) {
               _stops.forEach(function(_stop){
+                // solves an intial condistions problem in publish('departure_times')
+                _stop.detartures_as_of = 1
                 // Stop codes are NOT unique
                 // routes: Millbrae, Daly City, SF Airport share stop codes
                 Departures.update({code       : _stop.code
                                 , "route.name": _stop.route.name}
-                              , { $set: _stop
-                                , $set: {detartures_as_of: 1}}
+                              , { $set: _stop}
                               , {upsert: true})
 
                 var loc = BART.findOne({name: _stop.name})
                 var stop_code = _stop.code
                 delete _stop.code // we want to have an array of codes
+                delete _stop.detartures_as_of
                 if (loc) {
                   _stop.loc = {type       : "Point"
                             , coordinates : [ loc.longitude
