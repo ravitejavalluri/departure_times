@@ -84,8 +84,13 @@ Meteor.methods({
   }
 })
 
+// yes, I should not comit the token.  I'll re-write history and 
+// use settings.json
 API = WrapAPI('5fcef9ea-680b-49ff-a076-f2b7646ff397', transport)
-// updateDB()  // no need to update the db every time we restart
+
+Meteor.startup(function() {
+  updateDB() // for deployment and etc.
+})
 
 // I need a way to populate the dataset
 // For a production version I would use http://transit.511.org/datafeed/feed_desc.html
